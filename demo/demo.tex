@@ -1,0 +1,29 @@
+\documentclass[UTF8,landscape,a4paper,10pt]{ctexart}
+\usepackage[margin=10mm]{geometry}
+\usepackage[european resistors,american inductors]{circuitikz}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\ctikzset{bipoles/length=1.05cm}
+\tikzset{
+  wire/.style={line width=0.75pt, line cap=round, line join=round},
+  symbol/.style={line width=0.8pt, line cap=round, line join=round},
+  note/.style={font=\small},
+  smallnote/.style={font=\footnotesize},
+  captionstyle/.style={font=\small, align=center},
+  dot/.style={circle,fill=black,inner sep=1.5pt}
+}
+\newcommand{\sheethead}[2]{%
+  {\heiti\zihao{3} #1}\hfill{\small\color{gray} CN Circuit Drawing · Demo 0.1}\\[-1mm]
+  {\small #2}\\[-1mm]
+  \rule{\textwidth}{0.45pt}\vspace{1.5mm}
+}
+\begin{document}
+\input{sheet-1.tex}
+\newpage
+\input{sheet-2.tex}
+\newpage
+\input{sheet-3.tex}
+\end{document}
