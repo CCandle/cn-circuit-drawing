@@ -1,0 +1,78 @@
+\sheethead{02 连接关系与标注}{重点检查：导线交叉是否明确、源尺寸、电流箭头与表体间距、电压量名相对极性的居中关系。}
+\begin{center}
+\begin{circuitikz}[x=1cm,y=1cm,wire,european resistors,american inductors]
+\node[font=\small\bfseries,anchor=west] at (0.8,11.35) {电流表串联，电压表并联};
+% 独立源视觉尺寸缩小约 25%（个人偏好候选）
+\draw (2.0,9.15)--(2.0,5.67);
+\draw (2.0,4.99)--(2.0,1.55);
+\draw (2.0,5.33) circle (0.34);
+\node[font=\small] at (1.05,5.33) {$U_s$};
+\node[font=\small] at (1.52,5.88) {$+$};
+\node[font=\small] at (1.52,4.78) {$-$};
+% 电流方向只保留短箭头，与 A 表体留出间距
+\draw (2.0,9.15)--(3.35,9.15);
+\draw[-{Stealth[length=2.3mm,width=1.7mm]}] (2.42,9.15)--(3.05,9.15);
+% ammeter
+\draw (3.35,9.15) arc[start angle=180,end angle=0,radius=0.45];
+\draw (3.35,9.15) arc[start angle=180,end angle=360,radius=0.45];
+\node[font=\normalsize] at (3.8,9.15) {A};
+\draw (4.25,9.15)--(5.45,9.15);
+% resistor and voltage polarity
+\draw (5.45,9.15)--(5.92,9.15);
+\draw (5.92,8.88) rectangle (7.62,9.42);
+\draw (7.62,9.15)--(8.35,9.15);
+\node[font=\small] at (6.77,8.52) {$R$};
+\fill (5.45,9.15) circle (1.5pt);
+\fill (8.35,9.15) circle (1.5pt);
+\node[font=\small] at (5.45,10.02) {$+$};
+\node[font=\small] at (8.35,10.02) {$-$};
+\node[font=\normalsize] at (6.90,10.72) {$u_R$};
+\draw (8.35,9.15)--(8.35,1.55)--(2.0,1.55);
+% voltmeter branch in parallel
+\draw (5.45,9.15)--(5.45,6.15)--(6.30,6.15);
+\draw (6.30,6.15) arc[start angle=180,end angle=0,radius=0.47];
+\draw (6.30,6.15) arc[start angle=180,end angle=360,radius=0.47];
+\node[font=\normalsize] at (6.77,6.15) {V};
+\draw (7.24,6.15)--(8.35,6.15)--(8.35,9.15);
+\fill (8.35,6.15) circle (1.5pt);
+\node[font=\footnotesize,align=center,text width=10.6cm] at (5.25,0.72) {电流方向用短箭头表示，不让箭头或标注侵入 A 表体；$u_R$ 位于正、负极性符号的水平中点上方。};
+
+\draw[gray!60,line width=.4pt] (13.2,0.45)--(13.2,11.6);
+\node[font=\small\bfseries] at (19.9,11.35) {交叉与连接必须一眼可辨};
+% bridge crossing: vertical wire is visually interrupted only at the bridge crest
+\draw (14.7,8.75)--(18.1,8.75);
+\draw (16.4,7.65)--(16.4,8.88);
+\draw (16.4,9.28)--(16.4,9.85);
+\draw (14.7,8.75)--(16.0,8.75)
+      .. controls (16.18,8.75) and (16.18,9.08) .. (16.4,9.08)
+      .. controls (16.62,9.08) and (16.62,8.75) .. (16.8,8.75)
+      --(18.1,8.75);
+\node[captionstyle] at (16.4,7.15) {跨越不连接（桥形跨线）};
+\draw (21.0,8.75)--(24.4,8.75);
+\draw (22.7,7.65)--(22.7,9.85);
+\fill (22.7,8.75) circle (2pt);
+\node[captionstyle] at (22.7,7.15) {节点连接（实心连接点）};
+
+% Voltage annotation exemplar
+\draw (15.0,4.75)--(17.0,4.75);
+\draw (17.0,4.48) rectangle (22.0,5.02);
+\draw (22.0,4.75)--(24.8,4.75);
+\node[font=\small] at (19.5,4.08) {$R$};
+\node[font=\small] at (17.0,5.55) {$+$};
+\node[font=\small] at (22.0,5.55) {$-$};
+\node[font=\normalsize] at (19.5,6.05) {$u_R$};
+\node[font=\footnotesize,align=center] at (19.9,3.48) {量名居中；极性符号对应元件两端};
+
+% 运放使用原生 CircuitikZ 符号与引脚锚点
+\node[op amp] (op) at (19.7,1.45) {};
+\draw (op.+)-- ++(-1.3,0) coordinate (ui);
+\draw (ui) circle (1.6pt);
+\node[font=\small,anchor=east] at ($(ui)+(-0.25,0)$) {$u_i$};
+\draw (op.-)-- ++(-1.0,0) coordinate (fb) |- (21.65,3.0) -- (21.65,1.45);
+\draw (op.out)--(22.4,1.45) coordinate (out);
+\fill (21.65,1.45) circle (1.5pt);
+\draw (22.4,1.45) circle (1.6pt);
+\node[font=\small,anchor=west] at ($(out)+(0.3,0)$) {$u_o$};
+\node[font=\footnotesize,align=center] at (19.7,0.12) {运放输入/输出标注锚定在实际引脚；$+/-$ 使用原生运放符号。};
+\end{circuitikz}
+\end{center}
