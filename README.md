@@ -10,6 +10,16 @@
 2. 导线交叉、连接点、电流/电压标注、测量电路与运放跟随器
 3. 耦合电感、互感弧线与变压器
 
+## 渲染预览
+
+[三页 PDF](demo/rendered/cn-circuit-drawing-demo-0.1.pdf)
+
+![01 基础元件与常用符号](demo/rendered/sheet-1.png)
+
+![02 连接关系与标注](demo/rendered/sheet-2.png)
+
+![03 磁耦合元件与变压器](demo/rendered/sheet-3.png)
+
 绘图中明确区分两层：
 
 - **符号基线**：按现行 GB/T 4728 对应分册的范围，以及国内电路教材常用表达进行首轮核对。
