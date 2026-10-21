@@ -1,0 +1,57 @@
+\sheethead{01 基础元件与常用符号}{黑白教材风格；矩形电阻与弧形线圈；先确认符号识别与整体观感。}
+\begin{center}
+\begin{circuitikz}[x=1cm,y=1cm,wire,european resistors,american inductors]
+\node[captionstyle] at (3.1,11.65) {电阻};
+\node[captionstyle] at (9.8,11.65) {电容};
+\node[captionstyle] at (16.5,11.65) {电感：弧形线圈*};
+\node[captionstyle] at (23.2,11.65) {可变电阻};
+\draw (1.85,10.55) to[R,l_=$R$] (4.35,10.55);
+\draw (8.55,10.55) to[C,l_=$C$] (11.05,10.55);
+\draw (15.25,10.55) to[L,l_=$L$] (17.75,10.55);
+\draw (21.95,10.55)--(22.65,10.55);
+\draw (22.65,10.28) rectangle (23.75,10.82);
+\draw (23.75,10.55)--(24.45,10.55);
+\draw[-{Stealth[length=2.2mm,width=1.6mm]}] (22.55,9.95)--(23.75,10.85);
+\node[font=\small] at (23.2,9.55) {$R_v$};
+
+\node[captionstyle] at (3.1,7.95) {独立电压源};
+\node[captionstyle] at (9.8,7.95) {独立电流源};
+\node[captionstyle] at (16.5,7.95) {二极管};
+\node[captionstyle] at (23.2,7.95) {接地};
+\draw (1.85,6.85) to[V,l_=$U_s$] (4.35,6.85);
+\draw (8.55,6.85)--(9.42,6.85);
+\draw (10.18,6.85)--(11.05,6.85);
+\draw (9.8,6.85) circle (0.38);
+\draw[-{Stealth[length=1.8mm,width=1.4mm]}] (9.8,6.60)--(9.8,7.10);
+\node[font=\small] at (9.8,6.28) {$I_s$};
+\draw (15.25,6.85) to[D,l_=$D$] (17.75,6.85);
+\draw (23.2,7.35)--(23.2,6.85);
+\draw (22.75,6.85)--(23.65,6.85);
+\draw (22.90,6.65)--(23.50,6.65);
+\draw (23.05,6.45)--(23.35,6.45);
+
+\node[captionstyle] at (3.1,4.2) {单刀单掷开关（断开）};
+\node[captionstyle] at (9.8,4.2) {单刀单掷开关（闭合）};
+\node[captionstyle] at (16.5,4.2) {电流表};
+\node[captionstyle] at (23.2,4.2) {电压表};
+\draw (1.85,3.05)--(2.55,3.05); \fill (2.55,3.05) circle (1.4pt);
+\draw (2.55,3.05)--(3.35,3.65);
+\fill (3.45,3.05) circle (1.4pt); \draw (3.45,3.05)--(4.35,3.05);
+\node[font=\small] at (3.1,2.55) {$S$};
+\draw (8.55,3.05)--(9.35,3.05); \fill (9.35,3.05) circle (1.4pt);
+\draw (9.35,3.05)--(10.15,3.05); \fill (10.15,3.05) circle (1.4pt);
+\draw (10.15,3.05)--(11.05,3.05);
+\node[font=\small] at (9.8,2.55) {$S$};
+\draw (15.25,3.05)--(15.95,3.05);
+\draw (17.05,3.05)--(17.75,3.05);
+\draw (16.5,3.05) circle (0.55);
+\node[font=\normalsize] at (16.5,3.05) {A};
+\draw (21.95,3.05)--(22.65,3.05);
+\draw (23.75,3.05)--(24.45,3.05);
+\draw (23.2,3.05) circle (0.55);
+\node[font=\normalsize] at (23.2,3.05) {V};
+
+\draw[gray!65,line width=.4pt] (0.9,1.55)--(25.5,1.55);
+\node[anchor=west,align=left,text width=25cm,font=\footnotesize] at (1.0,0.85) {\textbf{个人偏好候选（*）：} 电感采用弧形线圈，避免线圈重叠成团；电表采用清晰的圆形表体与字母，不叠加斜线。\quad \textbf{符号基线：} 其余符号按 GB/T 4728 对应分册及国内电路教材常见表达作为首轮候选。};
+\end{circuitikz}
+\end{center}
